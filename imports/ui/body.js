@@ -11,12 +11,13 @@ import './task.js'
 Session.setDefault('showCompleted', true)
 Session.setDefault('currentProject', 'Loading')
 
-
-
 Template.body.helpers({
   currentProject(){
     if (Session.get('currentProject') == 'Loading'){
       Session.set('currentProject', Projects.findOne({}, { sort: { createdAt: -1 } })['name'])
+    }
+    if (Projects.find({username: Meteor.user().username}).count() == 0){
+      return false
     }
     return Session.get('currentProject')
   },

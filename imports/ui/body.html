@@ -2,16 +2,22 @@
   {{#if currentUser}}
     <div class="loader"></div>
     {{> sidebar}}
+    {{#if currentProject}}
+      <div class="content">
+        <h1>{{currentProject}}</h1>
+        <pre contenteditable class="newTask" type="text" name="text" placeholder="Type to add new tasks" autocomplete="off"></pre>
+        <ul>
+          {{#each tasks}}
+            {{> task}}
+          {{/each}}
+          <div class="deleteProject">Remove {{currentProject}}</div>
+        </ul>
+      </div>
+    {{else}}
     <div class="content">
-      <h1>{{currentProject}}</h1>
-      <pre contenteditable class="newTask" type="text" name="text" placeholder="Type to add new tasks" autocomplete="off"></pre>
-      <ul>
-        {{#each tasks}}
-          {{> task}}
-        {{/each}}
-        <div class="deleteProject">Remove {{currentProject}}</div>
-      </ul>
+      <h1>Hit that blue button!</h1>
     </div>
+    {{/if}}
   {{else}}
     <div class="login">
       <div class="loginBox">

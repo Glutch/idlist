@@ -6,6 +6,7 @@ export const Projects = new Mongo.Collection('projects')
 
 if (Meteor.isServer) {
   // This code only runs on the server (when fetched at /server/main.js)
+
   Meteor.publish('projects', function projectsPublication() {
     return Projects.find({ owner: this.userId })
   })

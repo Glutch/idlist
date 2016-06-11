@@ -11,25 +11,13 @@
       <div class="logout">logout</div>
     </div>
     <div class="lists">
-      <input type="text" class="newProject" placeholder="new project" />
+      <input type="text" class="newProject" placeholder="New project" />
       <h2>Projects</h2>
       <div class="projects">
       {{#each projects}}
         {{> project}}
       {{/each}}
       </div>
-      <!--
-      <li>ID - Todolist <div class="incomplete">{{incompleteCount}}</div></li>
-      <li>Shizzle <div class="incomplete">0</div></li>
-      <li>GroupUp <div class="incomplete">4</div></li>
-
-      <h2>Concept</h2>
-      <li>Humbl <div class="incomplete">3</div></li>
-      <li>Shizzle <div class="incomplete">5</div></li>
-
-      <h2>Ideas</h2>
-      <li>Friendlyfire <div class="incomplete">2</div></li>
-      -->
     </div>
   </div>
 </template>

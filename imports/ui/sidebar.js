@@ -7,7 +7,6 @@ import { Projects } from '../api/projects.js'
 import './sidebar.html'
 import './project.js'
 
-Session.setDefault('canBlur', false)
 
 Template.sidebar.helpers({
   projects() {
@@ -31,19 +30,17 @@ Template.sidebar.events({
   'click .addProject'(e){
     $('.newProject').addClass('visible')
     $('.newProject').focus()
-    Session.set('canBlur', true)
   },
   'blur .newProject'(e){
-    if(Session.get('canBlur')){
-      $('.newProject').removeClass('visible')
-      Session.set('canBlur', false)
-    }
+    $('.newProject').removeClass('visible')
   },
   'keydown .newProject'(e) {
     console.log('pressed')
     if (e.keyCode == 13) {
+      console.log('enter pressed')
       e.preventDefault()
       if($('.newProject').val() != ''){
+        console.log('val wasnt empty')
         const name = $('.newProject').val()
   
         Meteor.call('projects.insert', name)
