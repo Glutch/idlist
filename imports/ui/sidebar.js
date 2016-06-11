@@ -7,6 +7,8 @@ import { Projects } from '../api/projects.js'
 import './sidebar.html'
 import './project.js'
 
+Session.setDefault('canBlur', false)
+
 Template.sidebar.helpers({
   projects() {
     return Projects.find({}, { sort: { createdAt: -1 } })
@@ -29,9 +31,13 @@ Template.sidebar.events({
   'click .addProject'(e){
     $('.newProject').addClass('visible')
     $('.newProject').focus()
+    Session.set('canBlur', true)
   },
   'blur .newProject'(e){
-    $('.newProject').removeClass('visible')
+    if(Session.get('canBlur')){
+      $('.newProject').removeClass('visible')
+      Session.set('canBlur', false)
+    }
   },
   'keydown .newProject'(e) {
     console.log('pressed')
