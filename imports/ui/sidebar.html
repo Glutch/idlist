@@ -1,0 +1,35 @@
+<template name="sidebar">
+  <div class="sidebar">
+    <header>
+      <a href="/"><img src="/images/logo.svg"/></a>
+      <div class="addProject"><img src="/images/plus.svg" class="plus"/></div>
+      <div class="hideCompleted"><div class="circle {{hideCompletedCircle}}"></div></div>
+    </header>
+    <div class="account">
+      <div class="picture"></div>
+      <div class="username">{{currentUsername}}</div>
+      <div class="logout">logout</div>
+    </div>
+    <div class="lists">
+      <input type="text" class="newProject" placeholder="new project" />
+      <h2>Projects</h2>
+      <div class="projects">
+      {{#each projects}}
+        {{> project}}
+      {{/each}}
+      </div>
+      <!--
+      <li>ID - Todolist <div class="incomplete">{{incompleteCount}}</div></li>
+      <li>Shizzle <div class="incomplete">0</div></li>
+      <li>GroupUp <div class="incomplete">4</div></li>
+
+      <h2>Concept</h2>
+      <li>Humbl <div class="incomplete">3</div></li>
+      <li>Shizzle <div class="incomplete">5</div></li>
+
+      <h2>Ideas</h2>
+      <li>Friendlyfire <div class="incomplete">2</div></li>
+      -->
+    </div>
+  </div>
+</template>

@@ -1,0 +1,9 @@
+<template name="task">
+  <li class="{{#if checked}}checked{{/if}}">
+    <div class="delete">Remove</div>
+ 
+    <div class="checkBox {{#if checked}}checkBoxChecked{{/if}}"></div>
+ 
+    <span contenteditable class="task"><pre>{{text}}</pre></span>
+  </li>
+</template>
