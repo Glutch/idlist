@@ -524,7 +524,7 @@ ul .delete:hover {
   opacity: 0;
 }
 
-@media screen and (max-width: 900px) {
+@media only screen and (max-device-width: 900px) {
   body {
     background: #fff;
   }
