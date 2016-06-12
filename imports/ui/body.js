@@ -38,6 +38,12 @@ Template.body.helpers({
 
 
 Template.body.events({
+  'click .menuActivate'(){
+    $('.sidebar').addClass('sidebarActive')
+  },
+  'click .content'(){
+    $('.sidebar').removeClass('sidebarActive')
+  },
   'click .deleteProject'() {
     Meteor.call('projects.remove', Session.get('currentProject'))
     Session.set('currentProject', Projects.findOne({}, { sort: { createdAt: -1 } })['name'])
