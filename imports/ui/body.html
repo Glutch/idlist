@@ -5,7 +5,7 @@
     <div class="loader"></div>
     {{> sidebar}}
     {{#if currentProject}}
-      <div class="content">
+      <a class="content">
         <h1>{{currentProject}}</h1>
         <pre contenteditable class="newTask" type="text" name="text" placeholder="Type to add new tasks" autocomplete="off"></pre>
         <ul>
@@ -14,7 +14,7 @@
           {{/each}}
           <div class="deleteProject">Remove {{currentProject}}</div>
         </ul>
-      </div>
+      </a>
     {{else}}
     <div class="content">
       <h1>Hit that blue button!</h1>
