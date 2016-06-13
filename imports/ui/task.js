@@ -12,14 +12,31 @@ Template.task.events({
   'click .delete'() {
     Meteor.call('tasks.remove', this._id)
   },
+  'click .task'(e) {
+    console.log()
+  },
+  'focus .task'(e) {
+    const text = $(e.target).text()
+    Session.set('taskText', text)
+  },
   'blur .task'(e) {
     const text = $(e.target).text()
-    Meteor.call('tasks.update', this._id, text)
-  },
-  'blur li'(e){
-    $(e.target).parent().addClass('saved')
-    setTimeout(function(){
-      $(e.target).parent().removeClass('saved')
-    },500)
+    if(text != Session.get('taskText')){
+
+      const height = $(e.target).height()
+      $(e.target).height(height)
+      
+      $(e.target).text('')
+      
+      Meteor.call('tasks.update', this._id, text)
+
+      $(e.target).parent().addClass('saved')
+      
+      setTimeout(function(){
+        $(e.target).parent().removeClass('saved')
+        $(e.target).height('auto')
+      },1000)
+    
+    }
   }
 })
