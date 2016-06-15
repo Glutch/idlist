@@ -39,6 +39,11 @@ Template.body.helpers({
     } else {
       return '/images/menu.svg'
     }
+  },
+  completedMobile() {
+    if (!Session.get('showCompleted')){
+      return 'toggleCompletedMobileActive'
+    }
   }
 })
 
@@ -54,6 +59,9 @@ Template.body.events({
     $('.project:first').addClass('projectActive')
   },
   'click .hideCompleted'() {
+    Session.set('showCompleted', !Session.get('showCompleted'))
+  },
+  'click .toggleCompletedMobile'() {
     Session.set('showCompleted', !Session.get('showCompleted'))
   },
   'click .logout'(){

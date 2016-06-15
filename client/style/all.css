@@ -76,6 +76,11 @@ h1 {
   text-decoration: underline;
 }
 
+.createIco,
+.createProjectIco {
+  display: none;
+}
+
 ul {
   padding: 0;
   margin: 0px auto 0px auto;
@@ -402,16 +407,8 @@ ul .delete:hover {
   cursor: pointer;
 }
 
-.sidebar header .hideCompleted:hover .circle {
-  background: #fff;
-}
-
 .sidebar header .hideCompleted .circleActive {
   background: #fff;
-}
-
-.sidebar header .hideCompleted .circleActive:hover {
-  background: rgba(255,255,255,0.5);
 }
 
 .sidebar header .hideCompleted .circle {
@@ -487,6 +484,10 @@ ul .delete:hover {
   right: 0px;
 }
 
+.sidebar .lists {
+  diplay: inline-block;
+}
+
 .sidebar .lists h2 {
   font-size: 16px;
   font-weight: 400;
@@ -542,6 +543,37 @@ ul .delete:hover {
     background: #242533;
   }
 
+  .toggleCompletedMobile {
+    position: fixed;
+    top: 20px;
+    right: 17px;
+    width: 25px;
+    height: 25px;
+    border: 2px solid #fff;
+    z-index: 5;
+    border-radius: 50%;
+  }
+
+  .toggleCompletedMobileActive {
+    background: #fff;
+  }
+
+  .createIco,
+  .createProjectIco {
+    position: fixed;
+    top: 86px;
+    z-index: 3;
+    width: 16px;
+    left: 22px;
+    display: block;
+  }
+
+  .createProjectIco {
+    position: absolute;
+    top: 21px;
+    left: 22px;
+  }
+
   ul li {
     width: 100%;
     padding: 25px 20px 22px 60px;
@@ -555,15 +587,30 @@ ul .delete:hover {
     border-bottom: 1px solid rgba(255,255,255,0.1);
   }
 
+  ul .checkBox:hover {
+    background: transparent;
+    border: 2px solid #fff;
+  }
+
+  ul .checkBoxChecked:hover {
+    background: #fff;
+  }
+
   .topLine {
     position: absolute;
     top: 0px;
     left: 0px;
     right: 0px;
     height: 65px;
-    background: rgba(36,37,51,0.9);
-    z-index: 2;
+    background: rgba(36,37,51,0.95);
+    z-index: 5;
     border-bottom: 1px solid rgba(255,255,255,0.1);
+    color: #fff;
+    text-align: center;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    line-height: 68px;
   }
 
   .sidebar {
@@ -577,13 +624,45 @@ ul .delete:hover {
     max-width: 80%;
     color: #fff;
     transition: 0.3s;
-    z-index: 1;
+    z-index: 4;
     box-shadow: 0px 0px 20px rgba(0,0,0,0.3);
   }
 
+  .sidebar .newProject {
+    border-radius: 0px;
+    color: #fff;
+    border: 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding: 23px 20px 22px 60px;
+    height: 60px;
+    z-index: 2;
+    background: rgba(36,37,51,0.95);
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    display: block;
+    font-size: 15px;
+  }
+
+  .sidebar .newProject:after {
+    content: 'Type to add project';
+  }
+
+  .sidebar .newProject:focus:after {
+    content: '';
+  }
+
+  .sidebar header {
+    display: none;
+  }
+
   .sidebar .account {
-    color: transparent;
+    color: rgba(0,0,0,0);
     padding: 10px 20px;
+    position: fixed;
+    bottom: 0px;
+    width: 216px;
   }
 
   .sidebar .account .username {
@@ -616,7 +695,17 @@ ul .delete:hover {
   }
 
   .sidebar .lists {
-    display: relative;
+    position: absolute;
+    top: 65px;
+    left: 0px;
+    bottom: 80px;
+    width: 246px;
+    overflow-x: scroll;
+  }
+
+  .sidebar .lists .projectActive {
+    border-left: 3px solid #fff !important;
+    color: #fff !important;
   }
 
   .sidebar .lists h2 {
@@ -631,6 +720,7 @@ ul .delete:hover {
     line-height: 39px;
     height: 40px;
     color: #999;
+    margin-left: 0px;
   }
 
   .sidebarActive {
@@ -639,11 +729,11 @@ ul .delete:hover {
 
   .content {
     position: absolute;
-    top: 10px;
+    top: 0px;
     right: 0px;
     left: 0px;
     bottom: 0px;
-    padding: 0px;
+    padding: 125px 0px 0px 0px;
     overflow-y: scroll;
   }
 
@@ -662,17 +752,23 @@ ul .delete:hover {
     border: 2px solid #d34d66;
   }
 
+  .content .delete:hover {
+    width: 25px;
+    height: 25px;
+    display: inline-block;
+    position: absolute;
+    right: 17px;
+    top: 16px;
+    border-radius: 50%;
+    cursor: pointer;
+    top: 50%;
+    margin-top: -13px;
+    color: rgba(0,0,0,0);
+    border: 2px solid #d34d66;
+  }
+
   .content h1 {
-    color: #fff;
-    z-index: 2;
-    position: fixed;
-    top: 27px;
-    left: 0px;
-    right: 0px;
-    text-align: center;
-    font-size: 14px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
+    display: none;
   }
 
   .content .newTask {
@@ -681,11 +777,15 @@ ul .delete:hover {
     color: #fff;
     border: 0;
     border-bottom: 1px solid rgba(255,255,255,0.1);
-    padding: 23px 20px 22px 20px;
+    padding: 23px 20px 22px 60px;
+    position: fixed;
+    top: 9px;
+    z-index: 2;
+    background: rgba(36,37,51,0.95);
   }
 
   .content .newTask:focus {
-    background: transparent;
+    background: rgba(36,37,51,0.95);
     color: #fff;
     border: 0;
     border-bottom: 1px solid rgba(255,255,255,0.1);
@@ -705,7 +805,7 @@ ul .delete:hover {
     width: 20px;
     height: 40px;
     border-radius: 4px;
-    z-index: 3;
+    z-index: 6;
   }
 
   .loginBox {

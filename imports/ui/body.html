@@ -1,12 +1,14 @@
 <body>
   {{#if currentUser}}
-    <div class="topLine"></div>
+    <div class="topLine">{{currentProject}}</div>
     <img src="{{menuImage}}" class="menuActivate"/>
+    <div class="toggleCompletedMobile {{completedMobile}}"></div>
     <div class="loader"></div>
     {{> sidebar}}
     {{#if currentProject}}
       <a class="content">
         <h1>{{currentProject}}</h1>
+        <img class="createIco" src="/images/create.png"/>
         <pre contenteditable class="newTask" type="text" name="text" placeholder="Type to add new tasks" autocomplete="off"></pre>
         <ul>
           {{#each tasks}}
