@@ -587,6 +587,10 @@ ul .delete:hover {
     border-bottom: 1px solid rgba(255,255,255,0.1);
   }
 
+  ul .task {
+      width: calc(100% - 40px);
+  }
+
   ul .checkBox:hover {
     background: transparent;
     border: 2px solid #fff;
@@ -660,7 +664,7 @@ ul .delete:hover {
   .sidebar .account {
     color: rgba(0,0,0,0);
     padding: 10px 20px;
-    position: fixed;
+    position: absolute;
     bottom: 0px;
     width: 216px;
   }
