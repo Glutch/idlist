@@ -1,7 +1,7 @@
 <body>
   {{#if currentUser}}
     <div class="topLine"></div>
-    <img src="/images/menu.png" class="menuActivate"/>
+    <img src="{{menuImage}}" class="menuActivate"/>
     <div class="loader"></div>
     {{> sidebar}}
     {{#if currentProject}}

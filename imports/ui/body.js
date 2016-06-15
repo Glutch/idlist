@@ -32,17 +32,21 @@ Template.body.helpers({
   },
   incompleteCount() {
     return Tasks.find({ checked: { $ne: true } }).count()
+  },
+  menuImage(){
+    if(Session.get('sidebarActive')){
+      return '/images/close.svg'
+    } else {
+      return '/images/menu.svg'
+    }
   }
 })
 
 
 
 Template.body.events({
-  'click .menuActivate'(){
-    $('.sidebar').addClass('sidebarActive')
-  },
-  'click .content'(){
-    $('.sidebar').removeClass('sidebarActive')
+  'click .menuActivate'(e){
+    Session.set('sidebarActive', !Session.get('sidebarActive'))
   },
   'click .deleteProject'() {
     Meteor.call('projects.remove', Session.get('currentProject'))

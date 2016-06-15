@@ -7,7 +7,7 @@ body {
   font-size: 15px;
   font-weight: 200;
   box-sizing: border-box;
-  font-family: Proxima Pova, sans-serif;
+  font-family: Proxima Pova;
 }
 
 h1 {
@@ -95,7 +95,7 @@ ul li {
 }
 
 ul .task {
-  white-space: pre;
+  white-space: pre-wrap;
   width: 100%;
   display: inline-block;
 }
@@ -157,6 +157,69 @@ ul .delete:hover {
   border-radius: 0px;
   top: 0px;
   right: 0px;
+}
+
+@font-face {
+  font-family: 'Proxima Pova';
+  font-style: normal;
+  font-weight: 300;
+  src: url("/fonts/ProximaNova-Light.otf") format('opentype');
+}
+
+@font-face {
+  font-family: 'Proxima Pova';
+  font-style: normal;
+  font-weight: 400;
+  src: url("/fonts/ProximaNova-Regular.otf") format('opentype');
+}
+
+@font-face {
+  font-family: 'Proxima Pova';
+  font-style: normal;
+  font-weight: 600;
+  src: url("/fonts/ProximaNova-Semibold.otf") format('opentype');
+}
+
+@font-face {
+  font-family: 'Proxima Pova';
+  font-style: normal;
+  font-weight: 700;
+  src: url("/fonts/ProximaNova-Bold.otf") format('opentype');
+}
+
+@font-face {
+  font-family: 'Proxima Pova';
+  font-style: normal;
+  font-weight: 800;
+  src: url("/fonts/ProximaNova-Extrabold.otf") format('opentype');
+}
+
+@font-face {
+  font-family: 'Proxima Pova';
+  font-style: normal;
+  font-weight: 900;
+  src: url("/fonts/ProximaNova-Black.otf") format('opentype');
+}
+
+@font-face {
+  font-family: 'Proxima Pova Cond';
+  font-style: normal;
+  font-weight: 300;
+  src: url("/fonts/ProximaNovaCond-Light.otf") format('opentype');
+}
+
+@font-face {
+  font-family: 'Proxima Pova Cond';
+  font-style: normal;
+  font-weight: 400;
+  src: url("/fonts/ProximaNovaCond-Regular.otf") format('opentype');
+}
+
+@font-face {
+  font-family: 'Proxima Pova Cond';
+  font-style: normal;
+  font-weight: 600;
+  src: url("/fonts/ProximaNovaCond-Semibold.otf") format('opentype');
 }
 
 .login {
@@ -290,6 +353,8 @@ ul .delete:hover {
 
 .sidebar header {
   display: inline-block;
+  height: 62px;
+  overflow: hidden;
 }
 
 .sidebar header img {
@@ -422,10 +487,6 @@ ul .delete:hover {
   right: 0px;
 }
 
-.sidebar .lists {
-  diplay: inline-block;
-}
-
 .sidebar .lists h2 {
   font-size: 16px;
   font-weight: 400;
@@ -452,6 +513,7 @@ ul .delete:hover {
   border-left: 3px solid rgba(0,0,0,0);
   margin-left: -20px;
   transition: 0.2s;
+  overflow: hidden;
 }
 
 .sidebar .lists .project:hover {
@@ -475,72 +537,22 @@ ul .delete:hover {
   opacity: 0;
 }
 
-@font-face {
-  font-family: 'Proxima Pova';
-  font-style: normal;
-  font-weight: 300;
-  src: url("/fonts/ProximaNova-Light.otf") format('opentype');
-}
-
-@font-face {
-  font-family: 'Proxima Pova';
-  font-style: normal;
-  font-weight: 400;
-  src: url("/fonts/ProximaNova-Regular.otf") format('opentype');
-}
-
-@font-face {
-  font-family: 'Proxima Pova';
-  font-style: normal;
-  font-weight: 600;
-  src: url("/fonts/ProximaNova-Semibold.otf") format('opentype');
-}
-
-@font-face {
-  font-family: 'Proxima Pova';
-  font-style: normal;
-  font-weight: 700;
-  src: url("/fonts/ProximaNova-Bold.otf") format('opentype');
-}
-
-@font-face {
-  font-family: 'Proxima Pova';
-  font-style: normal;
-  font-weight: 800;
-  src: url("/fonts/ProximaNova-Extrabold.otf") format('opentype');
-}
-
-@font-face {
-  font-family: 'Proxima Pova';
-  font-style: normal;
-  font-weight: 900;
-  src: url("/fonts/ProximaNova-Black.otf") format('opentype');
-}
-
-@font-face {
-  font-family: 'Proxima Pova Cond';
-  font-style: normal;
-  font-weight: 300;
-  src: url("/fonts/ProximaNovaCond-Light.otf") format('opentype');
-}
-
-@font-face {
-  font-family: 'Proxima Pova Cond';
-  font-style: normal;
-  font-weight: 400;
-  src: url("/fonts/ProximaNovaCond-Regular.otf") format('opentype');
-}
-
-@font-face {
-  font-family: 'Proxima Pova Cond';
-  font-style: normal;
-  font-weight: 600;
-  src: url("/fonts/ProximaNovaCond-Semibold.otf") format('opentype');
-}
-
 @media only screen and (max-width: 900px) {
   body {
-    background: #fff;
+    background: #242533;
+  }
+
+  ul li {
+    width: 100%;
+    padding: 25px 20px 22px 60px;
+    background: #242533;
+    color: #fff;
+    margin: 0;
+    display: block;
+    position: relative;
+    overflow: hidden;
+    border-radius: 0px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
   }
 
   .topLine {
@@ -548,29 +560,34 @@ ul .delete:hover {
     top: 0px;
     left: 0px;
     right: 0px;
-    height: 100px;
-    background: #333;
+    height: 65px;
+    background: rgba(36,37,51,0.9);
     z-index: 2;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
   }
 
   .sidebar {
     position: fixed;
-    top: 0px;
+    top: 65px;
     left: -100%;
     bottom: 0px;
-    background: #333;
+    background: #242533;
     padding: 20px;
     width: 266px;
     max-width: 80%;
     color: #fff;
     transition: 0.3s;
-    z-index: 4;
+    z-index: 1;
     box-shadow: 0px 0px 20px rgba(0,0,0,0.3);
   }
 
   .sidebar .account {
     color: transparent;
     padding: 10px 20px;
+  }
+
+  .sidebar .account .username {
+    color: #fff;
   }
 
   .sidebar .account .picture {
@@ -608,7 +625,7 @@ ul .delete:hover {
 
   .sidebar .lists .project {
     display: block;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 200;
     color: #7e7e7e;
     line-height: 39px;
@@ -626,7 +643,7 @@ ul .delete:hover {
     right: 0px;
     left: 0px;
     bottom: 0px;
-    padding: 60px 20px;
+    padding: 0px;
     overflow-y: scroll;
   }
 
@@ -649,28 +666,44 @@ ul .delete:hover {
     color: #fff;
     z-index: 2;
     position: fixed;
-    top: 30px;
+    top: 27px;
     left: 0px;
     right: 0px;
     text-align: center;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
   }
 
   .content .newTask {
-    margin: 50px auto 20px auto;
+    margin: 55px auto 0px auto;
+    border-radius: 0px;
+    color: #fff;
+    border: 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding: 23px 20px 22px 20px;
+  }
+
+  .content .newTask:focus {
+    background: transparent;
+    color: #fff;
+    border: 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
   }
 
   .content .deleteProject {
     font-size: 15px;
+    color: rgba(255,255,255,0.3);
+    margin-bottom: 30px;
   }
 
   .menuActivate {
     display: block;
     position: absolute;
-    top: 20px;
+    top: 13px;
     left: 20px;
-    width: 62px;
-    height: 62px;
-    background: #333;
+    width: 20px;
+    height: 40px;
     border-radius: 4px;
     z-index: 3;
   }

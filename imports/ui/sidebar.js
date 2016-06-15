@@ -22,6 +22,13 @@ Template.sidebar.helpers({
     if (!Session.get('showCompleted')){
       return 'circleActive'
     }
+  },
+  sidebarActive(){
+    if(Session.get('sidebarActive')){
+      return 'sidebarActive'
+    } else {
+      return ''
+    }
   }
 })
 
